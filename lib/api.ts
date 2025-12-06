@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { Note, NewNote } from "@/types/note";
 const BASE_URL = "https://notehub-public.goit.study/api";
-const token = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
+const token = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN as string;
 
 export interface FetchNoteParams {
   search?: string;
