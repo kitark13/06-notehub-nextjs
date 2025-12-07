@@ -7,13 +7,13 @@ import { fetchNotes } from "@/lib/api";
 import NoteClient from "./Notes.client";
 
 interface NotesProps {
-  params: Promise<{ page: string; search: string }>;
+  searchParams?: { page?: string; search?: string };
 }
 
-async function Notes({ params }: NotesProps) {
-  const searchParams = await params;
-  const page = Number(searchParams.page) || 1;
-  const search = searchParams.search || "";
+async function Notes({ searchParams }: NotesProps) {
+  //   const params = await searchParams;
+  const page = Number(searchParams?.page) || 1;
+  const search = searchParams?.search || "";
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
